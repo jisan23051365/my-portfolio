@@ -1318,7 +1318,8 @@
         })
       });
       const json = await res.json();
-      succeeded = !!(json && json.success);
+      /* treat as success if submission was recorded (even if email delivery lags) */
+      succeeded = res.ok && !!(json && (json.success || json.message));
     } catch (_) { succeeded = false; }
 
     if (succeeded) {
