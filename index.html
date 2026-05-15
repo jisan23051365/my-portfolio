@@ -385,19 +385,21 @@
       .hamburger{display:flex;}
       /* Scroll hint overlaps buttons when hero stacks — hide it */
       .scroll-ind{display:none;}
-      /* Badges: one top-right, one bottom-left — face stays clear, no collision */
-      .badge-cgpa{left:8px;bottom:14px;top:auto;min-width:0;padding:0.35rem 0.6rem;}
-      .badge-ibm{right:8px;top:14px;bottom:auto;left:auto;min-width:0;padding:0.35rem 0.6rem;}
+      /* Badges: both bottom corners — face stays fully clear */
+      .badge-cgpa{left:8px;bottom:14px;top:auto;right:auto;min-width:0;padding:0.35rem 0.6rem;}
+      .badge-ibm{right:8px;bottom:14px;top:auto;left:auto;min-width:0;padding:0.35rem 0.6rem;}
       .badge-cgpa .bv,.badge-ibm .bv{font-size:0.88rem;}
       .badge-label{font-size:0.6rem;}
     }
     @media(max-width:600px){
       .section-wrap{padding:4rem 0;}
       .hero-img-wrap{width:210px;height:265px;}
-      .badge-cgpa{bottom:10px;left:6px;top:auto;min-width:0;padding:0.3rem 0.5rem;}
-      .badge-ibm{top:10px;right:6px;bottom:auto;left:auto;min-width:0;padding:0.3rem 0.5rem;}
+      /* Pull badges out of the image — display as a row below it */
+      .hero-right{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:auto auto;gap:0.5rem;}
+      .hero-avatar{grid-column:1 / -1;}
+      .hero-badge{position:static;border-radius:10px;min-width:0;padding:0.45rem 0.65rem;left:auto;right:auto;top:auto;bottom:auto;}
       .badge-cgpa .bv,.badge-ibm .bv{font-size:0.8rem;}
-      .badge-label{font-size:0.58rem;}
+      .badge-label{font-size:0.6rem;}
     }
     /* ── Skip to content (accessibility) ── */
     .skip-link{position:absolute;top:-100px;left:1rem;z-index:9999;background:var(--emerald);color:#030d08;padding:0.5rem 1rem;border-radius:0 0 8px 8px;font-weight:700;font-size:0.85rem;transition:top 0.2s ease;}
